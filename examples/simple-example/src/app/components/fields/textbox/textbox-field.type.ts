@@ -1,5 +1,5 @@
 import { TemplateRef } from '@angular/core';
-import { FieldBase } from './field-base.type';
+import { FieldBase } from '../../../../../../../projects/ng-core/src/public-api';
 
 export class TextboxField extends FieldBase<string> {
   override readonly fieldType? = 'textbox';

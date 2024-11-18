@@ -1,12 +1,5 @@
 import { AbstractControlOptions, FormControl, FormGroup } from '@angular/forms';
 import {
-  ChipsField,
-  IScreenSize,
-  ScreenSizeType,
-  SubmitButton,
-  SubmitResponse,
-} from './types';
-import {
   Component,
   EventEmitter,
   Input,
@@ -15,6 +8,12 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
+import {
+  IScreenSize,
+  ScreenSizeType,
+  SubmitButton,
+  SubmitResponse,
+} from './types';
 
 import { FieldBase } from './types/fields/field-base.type';
 import { FormFieldComponents } from './types/field-components.type';
@@ -54,23 +53,9 @@ export class NvsDynamicFormComponent implements OnInit, OnChanges {
     );
   }
 
-  private getChipsValues(): { [key: string]: Array<string> } {
-    return (
-      this.fields.filter(
-        (field) => field.fieldType === 'chips',
-      ) as Array<ChipsField>
-    ).reduce((acc: { [key: string]: Array<string> }, field: ChipsField) => {
-      acc[field.key] = field.selectedChipsItems ?? [];
-      return acc;
-    }, {});
-  }
-
   protected onSubmitForm(): void {
     this.onSubmit.emit({
-      values: {
-        ...this.formGroup.value,
-        ...this.getChipsValues(),
-      },
+      values: this.formGroup.value,
       valid: this.formGroup.valid,
     });
   }

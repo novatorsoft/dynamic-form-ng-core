@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NvsDynamicFormModule } from '../../../../projects/ng-core/src/lib/nvs-dynamic-form.module';
-import { RouterOutlet } from '@angular/router';
-import { TextboxField } from '../../../../projects/ng-core/src/public-api';
+import { TextboxField } from './components/fields';
 import { Validators } from '@angular/forms';
 
 @Component({
@@ -9,7 +8,7 @@ import { Validators } from '@angular/forms';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [RouterOutlet, NvsDynamicFormModule],
+  imports: [NvsDynamicFormModule],
 })
 export class AppComponent {
   title = 'simple-example';
@@ -36,6 +35,7 @@ export class AppComponent {
     new TextboxField({
       label: 'E-mail Address',
       key: 'emailAddress',
+      type: 'email',
       screenSize: 12,
     }),
   ];
