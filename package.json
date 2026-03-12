@@ -1,6 +1,7 @@
 {
   "name": "@nvs-dynamic-form/ng-core",
   "version": "1.3.0",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve simple-example",
